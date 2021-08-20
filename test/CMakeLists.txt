@@ -1,0 +1,11 @@
+include(GoogleTest)
+add_executable(testNexerArbetsprov
+    test_main.cpp
+    test_solutions.cpp
+)
+target_link_libraries(testNexerArbetsprov
+    CONAN_PKG::gtest
+    NexerArbetsprov::Utils
+    NexerArbetsprov::Solutions
+)
+gtest_discover_tests(testNexerArbetsprov)

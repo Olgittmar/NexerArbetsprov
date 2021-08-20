@@ -1,0 +1,14 @@
+[settings]
+    os_build=Windows
+    arch_build=x86_64
+    os=Windows
+    arch=x86_64
+    compiler=Visual Studio
+    compiler.version=16
+    compiler.cppstd=20
+    build_type=Debug
+[options]
+[build_requires]
+[env]
+CONAN_CMAKE_GENERATOR=Ninja
+CONAN_COLOR_DISPLAY=1
