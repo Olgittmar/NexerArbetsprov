@@ -139,4 +139,5 @@ CMakeCache.txt
 
 # Personal workflow stuff
 # build.bat
-Cplusplus/clear.bat
+clear.bat
+/testData

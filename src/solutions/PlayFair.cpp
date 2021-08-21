@@ -1,4 +1,5 @@
 #include "PlayFair.h"
+
 #include <iostream>
 #include <algorithm>
 
