@@ -1,16 +1,13 @@
 #include "GeorgesCheesePizza.h"
-#define _USE_MATH_DEFINES
-// Std
-#include <iostream>
-#include <cmath>
+#include <string>
 
 namespace Solutions {
     void
-    GeorgesCheesePizza()
+    GeorgesCheesePizza(std::istream& in, std::ostream& out)
     {
         int r, c;
-        std::cin >> r >> c;
-        std::cout << CalculateCheesePercentage(r, c);
+        in >> r >> c;
+        out << std::to_string( CalculateCheesePercentage(r, c) ) << std::endl;
     }
 
     double

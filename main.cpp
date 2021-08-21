@@ -4,6 +4,7 @@
 
 // Own
 #include <GeorgesCheesePizza.h>
+#include <PlayFair.h>
 
 int
 main( int argc, char* argv[] )
@@ -14,10 +15,11 @@ main( int argc, char* argv[] )
     }
     if( 0 == stricmp( argv[1], "GeorgesCheesePizza") ) {
         // run solution GeorgesCheesePizza
-        Solutions::GeorgesCheesePizza();
+        Solutions::GeorgesCheesePizza(std::cin, std::cout);
     }
     if( 0 == stricmp( argv[1], "PlayFair") ) {
         // run solution PlayFair
+        Solutions::PlayFair(std::cin, std::cout);
     }
     if( 0 == stricmp( argv[1], "PersFactorial") ) {
         // run solution PersFactorial
