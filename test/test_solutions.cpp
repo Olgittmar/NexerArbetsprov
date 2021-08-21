@@ -45,21 +45,21 @@ TEST(TestEncryptDigraph, GenericInput) {
     EXPECT_STREQ( table.EncryptDigraph("DF").c_str(), "FE" );
 
     EXPECT_STREQ( table.EncryptDigraph("HO").c_str(), "TP" );
-    EXPECT_STREQ( table.EncryptDigraph("XO").c_str(), "PU" );
-    EXPECT_STREQ( table.EncryptDigraph("RA").c_str(), "SZ" );
-    EXPECT_STREQ( table.EncryptDigraph("YF").c_str(), "EU" );
-    EXPECT_STREQ( table.EncryptDigraph("OR").c_str(), "QD" );
-    EXPECT_STREQ( table.EncryptDigraph("CR").c_str(), "YS" );
-    EXPECT_STREQ( table.EncryptDigraph("YP").c_str(), "OH" );
-    EXPECT_STREQ( table.EncryptDigraph("TO").c_str(), "QG" );
-    EXPECT_STREQ( table.EncryptDigraph("LO").c_str(), "VO" );
-    EXPECT_STREQ( table.EncryptDigraph("GY").c_str(), "ZY" );
+    EXPECT_STREQ( table.EncryptDigraph("OR").c_str(), "PU" );
+    EXPECT_STREQ( table.EncryptDigraph("AY").c_str(), "SZ" );
+    EXPECT_STREQ( table.EncryptDigraph("FO").c_str(), "EU" );
+    EXPECT_STREQ( table.EncryptDigraph("RC").c_str(), "QD" );
+    EXPECT_STREQ( table.EncryptDigraph("RY").c_str(), "YS" );
+    EXPECT_STREQ( table.EncryptDigraph("PT").c_str(), "OH" );
+    EXPECT_STREQ( table.EncryptDigraph("OL").c_str(), "QG" );
+    EXPECT_STREQ( table.EncryptDigraph("OG").c_str(), "VO" );
+    EXPECT_STREQ( table.EncryptDigraph("YX").c_str(), "ZY" );
 
     table = Solutions::EncryptionTable("Playfair");
     for(int i = 0; i < 5; ++i){
         std::cerr << table.GetTable().substr(i*5, 5) << std::endl;
     }
-    
+
     EXPECT_STREQ( table.EncryptDigraph("RS").c_str(), "CO" );
     EXPECT_STREQ( table.EncryptDigraph("FU").c_str(), "PZ" );
     EXPECT_STREQ( table.EncryptDigraph("UF").c_str(), "ZP" );
@@ -74,7 +74,7 @@ TEST(TestDigraphList, GenericInput) {
     EXPECT_STREQ( Solutions::DigraphList("WHOOP").toString().c_str(), "WHOXOP" );
     EXPECT_STREQ( Solutions::DigraphList("AQuickBrownFox").toString().c_str(), "AQUICKBROWNFOX" );
     EXPECT_STREQ( Solutions::DigraphList("JumpedOverTheLazyDogs").toString().c_str(), "IUMPEDOVERTHELAZYDOGSX" );
-    EXPECT_STREQ( Solutions::DigraphList("Hooray for cryptology").toString().c_str(), "HOXORAYFORCRYPTOLOGY" );
+    EXPECT_STREQ( Solutions::DigraphList("Hooray for cryptology").toString().c_str(), "HOORAYFORCRYPTOLOGYX" );
 }
 
 TEST(TestEncryptionTable, GenericInput) {

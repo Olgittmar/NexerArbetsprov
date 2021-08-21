@@ -98,12 +98,10 @@ namespace Solutions {
     void
     DigraphList::InsertXBetweenConsecutiveDuplicates( std::string& str )
     {
-        char last = str.front();
-        for(auto it = str.begin() + 1; it != str.end(); ++it) {
-            if( last == *it ){
-                it = str.insert(it, 'X');
+        for(int i = 0; i*2 + 1 < str.size(); ++i){
+            if( str.at(i*2) == str.at(i*2 + 1) ){
+                str.insert(i*2 + 1, "X");
             }
-            last = *it;
         }
     }
 
@@ -163,6 +161,10 @@ namespace Solutions {
             if( !std::getline(input , keyword, '\n') ){
                 std::cerr << "Failed to extract keyword" << std::endl;
                 return;
+            } else if( !message.empty() ) {
+                // "Output a blank line between adjacent cases."
+                // message should only be empty before first batch of testCases are read
+                output << std::endl;
             }
 
             std::string results;
