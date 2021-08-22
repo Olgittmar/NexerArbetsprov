@@ -81,7 +81,7 @@ namespace Solutions {
     {
         if( str.size() < 2 ){
             if( str.size() == 1 ) {
-                digraphs = str + 'X';
+                digraphs = ToUpperCopyAndReplaceJSkippingWhitespace(str) + 'X';
             }
             return;
         }
