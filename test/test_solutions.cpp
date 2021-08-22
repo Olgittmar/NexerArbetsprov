@@ -1,4 +1,9 @@
 #include "gtest/gtest.h"
+
+#include <iostream>
+#include <fstream>
+#include <filesystem>
+
 #include <GeorgesCheesePizza.h>
 #include <PersFactorial.h>
 #include <PlayFair.h>
@@ -112,11 +117,65 @@ TEST(TestPlayFair, IOStreamInput) {
                            "TPPUSZEUQDYSOHQGVOZY\n"
                            "\n"
                            "LOLELOIANTFEUEGXNDCB\n"
-                           "TUCEOGTKROUGMOXBRHNTFEIL";
+                           "TUCEOGTKROUGMOXBRHNTFEIL\n";
 
     std::stringstream istrm(in);
     std::stringstream ostrm;
     Solutions::PlayFair( istrm, ostrm );
 
     EXPECT_STREQ( ostrm.str().c_str(), expected.c_str() );
+}
+
+TEST(TestPlayFair, TestFileDataInput) {
+    const std::string testFileDir = std::filesystem::current_path().generic_string() + "/../testData/PlayFair";
+    const int maxNumTests = 2;
+
+    if( !std::filesystem::exists(testFileDir) ){
+        FAIL() << (testFileDir + " : directory not found!").c_str();
+    }
+
+    int testNum = 1;
+
+    std::ifstream istrm;
+    std::string expected;
+    for( ; testNum <= maxNumTests; ++testNum ) {
+        std::string expectedFilePath = testFileDir + "/" + std::to_string(testNum) + ".ans";
+        if( !std::filesystem::exists(expectedFilePath) ){
+            FAIL() << (expectedFilePath + " : file not found!").c_str();
+        }
+
+        istrm.open(expectedFilePath, std::ifstream::in);
+        // Learned something new here...
+        expected.assign( (std::istreambuf_iterator<char>(istrm)),
+                         (std::istreambuf_iterator<char>()) );
+        if( istrm.bad() ){
+            FAIL() << ("Failed to read contents of " + expectedFilePath).c_str();
+        }
+        istrm.close();
+        
+        std::string testFilePath = testFileDir + "/" + std::to_string(testNum) + ".in";
+        if( !std::filesystem::exists(testFilePath) ){
+            FAIL() << (testFilePath + " : file not found!").c_str() ;
+        }
+
+        std::stringstream ostrm;
+        istrm.open( testFilePath, std::ifstream::in );
+        Solutions::PlayFair(istrm, ostrm);
+        if( istrm.bad() ){
+            FAIL() << ("Playfair failed to read contents of " + testFilePath).c_str();
+        }
+        istrm.close();
+
+        EXPECT_STREQ(ostrm.str().c_str(), expected.c_str());
+
+        // Write results to file so we can compare manually as well
+        std::string resultsFilePath = testFileDir + "/" + std::to_string(testNum) + ".results";
+        std::ofstream rstrm;
+        rstrm.open(resultsFilePath, std::ifstream::out);
+        rstrm << ostrm.str();
+        if( rstrm.bad() ){
+            FAIL() << ("Failed to write contents to " + resultsFilePath).c_str();
+        }
+        rstrm.close();
+    }
 }

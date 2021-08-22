@@ -3,7 +3,8 @@
 #include <string>
 
 namespace Solutions {
-    std::string PersFactorial(int n);
+    std::string FindLastThreeNonZeroDigitsOfFactorial(int n);
+    void PersFactorial(std::istream& in, std::ostream& out);
 }
 
 #endif

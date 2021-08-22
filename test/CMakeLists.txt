@@ -9,3 +9,8 @@ target_link_libraries(testNexerArbetsprov
     NexerArbetsprov::Solutions
 )
 gtest_discover_tests(testNexerArbetsprov)
+add_custom_command(TARGET testNexerArbetsprov
+    POST_BUILD COMMAND
+    ${CMAKE_COMMAND} -E copy_directory
+    ${PROJECT_SOURCE_DIR}/testData ${CMAKE_BINARY_DIR}/testData
+)

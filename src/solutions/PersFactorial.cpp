@@ -2,9 +2,19 @@
 #include <iostream>
 
 namespace Solutions {
+
     std::string
-    PersFactorial(int n)
+    FindLastThreeNonZeroDigitsOfFactorial(int n)
     {
-        return "";
+        std::string N = std::to_string(n);
+        return N.substr( N.size() - 4, 3 );
+    }
+
+    void
+    PersFactorial(std::istream& in, std::ostream& out)
+    {
+        int n;
+        in >> n;
+        out << FindLastThreeNonZeroDigitsOfFactorial(n);
     }
 }

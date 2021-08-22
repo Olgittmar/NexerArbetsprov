@@ -5,6 +5,7 @@
 // Own
 #include <GeorgesCheesePizza.h>
 #include <PlayFair.h>
+#include <PersFactorial.h>
 
 int
 main( int argc, char* argv[] )
@@ -23,6 +24,7 @@ main( int argc, char* argv[] )
     }
     if( 0 == stricmp( argv[1], "PersFactorial") ) {
         // run solution PersFactorial
+        Solutions::PersFactorial(std::cin, std::cout);
     }
     
     return 0;
