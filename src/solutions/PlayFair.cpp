@@ -165,7 +165,7 @@ namespace Solutions {
             } else if( !message.empty() ) {
                 // "Output a blank line between adjacent cases."
                 // message should only be empty before first batch of testCases are read
-                output << std::endl;
+                output << std::endl << std::endl;
             }
 
             std::string results;
@@ -176,7 +176,14 @@ namespace Solutions {
                 }
                 results += EncodeMessage(message, table);
             }
-            output << results << std::endl;
+            output << results;
         }
     }
 }
+
+// int
+// main( int argc, char* argv[] )
+// {
+//     Solutions::PlayFair(std::cin, std::cout);
+//     return 0;
+// }

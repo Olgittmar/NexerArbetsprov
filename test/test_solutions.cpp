@@ -112,7 +112,7 @@ TEST(TestPlayFair, IOStreamInput) {
                            "TPPUSZEUQDYSOHQGVOZY\n"
                            "\n"
                            "LOLELOIANTFEUEGXNDCB\n"
-                           "TUCEOGTKROUGMOXBRHNTFEIL\n";
+                           "TUCEOGTKROUGMOXBRHNTFEIL";
 
     std::stringstream istrm(in);
     std::stringstream ostrm;
